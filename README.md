@@ -1,8 +1,30 @@
 # Batch_Image_Processors
-藉由雙擊點選欲辨識範圍的左上角與右下角，即可判斷框選範圍內的文字
+This repository demonstrates the use of **OpenCV**, **pyautogui** (for capturing mouse actions) to create a Batch Image Processor.
+The application is divided into two main parts:
+- **Inverse Image**：This function, implemented in **negative_photo.py**, converts images to their negative forms.
+- **Chop Images**：This function, implemented in **crop_photo.py**, allows users to crop images based on specified dimensions.
 
+## Ex：xkllkx_repo/8051.png
+### Inverse Image
+<img src="https://github.com/xkllkx/Batch_Image_Processor/blob/main/xkllkx_repo/8051.png" width="45%" height="45%"><img src="https://github.com/xkllkx/Batch_Image_Processor/blob/main/xkllkx_repo_B2W/xkllkx_repo_1.png" width="45%" height="45%">
 
-將需批量裁切的照片放入同一個資料夾後，將檔案名稱統一改為數字編號，藉由雙擊點選欲裁切範圍的左上角與右下角，即可完成批量改名與裁切。
+### Chop Images
+<img src="https://github.com/xkllkx/Batch_Image_Processor/blob/main/cut_window.png" width="45%" height="45%"><img src="https://github.com/xkllkx/Batch_Image_Processor/blob/main/xkllkx_repo_B2W_cut/xkllkx_repo_B2W_1.png" width="45%" height="45%">
+
+# Installation
+```bash
+pip install pyautogui opencv-python
+```
+
+# How to use this repo
+## Inverse Image
+### Run negative_photo.py.
+```bash
+python negative_photo.py
+```
+
+After placing the images that need to be transformed into the same folder,
+then pick the images folder to start transforming.
 
 ```bash
 請輸入要截圖的資料夾名稱：
@@ -24,94 +46,55 @@ xkllkx_repo_5.png B2W完成
 ------------------------
 ```
 
-This repository demonstrates using PIL and OpenCV to create a Pokémon game scenario generator.
-The application is divided into two main parts:
-
-### Character Info Edit
-Allows users to edit the character's name and HP.
-
-<img src="https://github.com/xkllkx/Pokemon_Scenario_Generator/blob/main/character_info_edit/f_w_model.jpg" width="45%" height="45%"><img src="https://github.com/xkllkx/Pokemon_Scenario_Generator/blob/main/character_info_edit/f_w.png" width="45%" height="45%">
-
-### Animation Generate
-Continues from the first part to progressively generate multiple game scenes and create a game animation.
-
-<img src="https://github.com/xkllkx/Pokemon_Scenario_Generator/blob/main/animation_generate/test.gif" width="90%" height="90%">
-# Installation
+## Chop Images
+###  Run crop_photo.py.
 ```bash
-pip install pillow opencv-python
+python crop_photo.py
 ```
 
-# How to use this repo
-## Character Info Edit
-### User define variable
-- Font
-```python
-font = ImageFont.truetype("Silver.ttf", 60)
-```
+After placing the images that need to be batch-chopped into the same folder,
+then pick the images folder to start transforming.
 
-- Character model pick
-```python
-im = Image.open("f_w_model.jpg")
-```
+Double-click to select the top-left and bottom-right corners of the desired crop area and input **Y** to check it.
+then you can complete the batch renaming and cropping.
 
-- Character HP
-```python
-player1_start_XY = [976,268] # XY # main character HP left-coor
-player1_end_XY = [751,268] # left
-
-player2_start_XY = [403,63] # XY # opponent character HP left-coor
-player2_end_XY = [180,63] # left
-
-# only player1 need HP num
-num_start_XY = [868,279] # left top
-
-player1_full_blood = 20
-player1_current_blood = 10
-
-player2_full_blood = 20
-player2_current_blood = 15
-```
-
-- Output Scenario (png)
-```python
-im.save("f_w.png","png")
-```
-
-### Run T2P_PIL_finish.py to generate single Pokémon game scenario.
 ```bash
-python T2P_PIL_finish.py
-```
-
-## Animation Generate
-### User define variable
-- As mentioned above
-
-- animation_fps
-```python
-picture_num = 50
-twinkle_num = 4 # slash on/off * 2
-
-picture_name = 0
-```
-
-- output folder
-```python
-filename = "w_g_bb_2"
-```
-
-- slash twice
-```python
-black = Image.open("black.jpg")
-twinkle = 0
-```
-
-- animation
-```python
-size = (1009,348) # image size
-print(size)
-```
-
-###  Run picture_2_movie_final.py to generate scenarios and Pokémon game Animation.
-```bash
-python picture_2_movie_final.py
+請輸入要截圖的資料夾名稱：
+xkllkx_repo_B2W 
+---選取截圖範圍---
+請選取欲截圖範圍的左上角與右下角
+1920 1080
+(1080, 1842, 3)
+1.0
+1080.0 1842.0
+27,152
+已選取1個點,還剩1個點
+393,197
+已選取2個點,完成選取
+---請關閉圖片---
+裁切範圍確認(Y/N):
+Y
+---改名並開始裁切---
+檔案標號確認(預設為0)(Y/N):
+Y
+xkllkx_repo_1.png >>> xkllkx_repo_B2W_1.png
+判斷裁切
+xkllkx_repo_B2W_1.png裁切完成
+------------------------
+xkllkx_repo_2.png >>> xkllkx_repo_B2W_2.png
+判斷裁切
+xkllkx_repo_B2W_2.png裁切完成
+------------------------
+xkllkx_repo_3.png >>> xkllkx_repo_B2W_3.png
+判斷裁切
+xkllkx_repo_B2W_3.png裁切完成
+------------------------
+xkllkx_repo_4.png >>> xkllkx_repo_B2W_4.png
+判斷裁切
+xkllkx_repo_B2W_4.png裁切完成
+------------------------
+xkllkx_repo_5.png >>> xkllkx_repo_B2W_5.png
+判斷裁切
+xkllkx_repo_B2W_5.png裁切完成
+------------------------
 ```
