@@ -20,8 +20,8 @@ def cv2_imread(file_path): # 為了讀取中文路徑
 print("請輸入要截圖的資料夾名稱：")
 file_name = str(input())
 
-path = './'+file_name+'/' # 欲進行檔名更改的檔案路徑
-cut_path = './'+file_name+'_cut/'
+path = f'./{file_name}/' # 欲進行檔名更改的檔案路徑
+cut_path = f'./{file_name}_cut/'
 # 圖片格式為jpg、png
 
 files = os.listdir(path)
