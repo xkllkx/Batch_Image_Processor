@@ -5,7 +5,7 @@ import os
 print("請輸入要截圖的資料夾名稱：")
 file_name = str(input())
 
-path='D://Users//xkllkx//Desktop//all_program//photo_cut//'+file_name+'//' #檔名更改的檔案路徑
+path=f"./+file_name+/" #檔名更改的檔案路徑
 #路徑不能包含中文
 #圖片是否在該路徑下，確保路徑沒有問題。
 #路徑中單斜杠'\'替換成雙斜杠'\\'或'//'或'/'
